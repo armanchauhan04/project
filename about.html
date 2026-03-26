@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Arman's Tech Blog</title>
+
+
+<script src="script.js" defer></script>
+<style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #4c6ef5;
+  --accent: #22c55e;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+  --max-width: 900px;
+}
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --muted: #9aa4b2;
+  --text: #e6eef6;
+  --primary: #6b8cff;
+  --shadow: 0 8px 30px rgba(2,6,23,0.7);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg,var(--primary),#3753d6);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px;
+}
+header h1 {
+  font-size: 2rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px;
+}
+nav a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background .3s, color .3s;
+}
+nav a:hover, nav a.active {
+  background: rgba(51, 55, 71, 0.1);
+  color: var(--primary);
+}
+
+/* Main container */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 40px 20px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Headings & paragraphs */
+.container h1 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.container p {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--muted);
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width:720px){
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 30px 14px;
+  }
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>About This Blog</h1>
+</header>
+
+<nav>
+    <a href="MAIN.html">Home</a>
+    <a class="active" href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="webdev.html">Web Dev</a>
+    <a href="ai.html">AI & ML</a>
+    <a href="technew.html">Tech News</a>
+    <a href="programming.html">Programming</a>
+    <a href="gadgets.html">Gadgets</a>
+</nav>
+
+<div class="container">
+    <h1>Who Am I?</h1>
+    <p>
+        Welcome to my tech blog! I’m Arman — a student, a learner, and someone who believes in 
+        building the future using technology. This website is my space to share what I learn about 
+        web development, programming, AI, gadgets, and the rapidly growing tech world.
+    </p>
+
+    <p>
+        I created this blog not just to publish content, but also to improve my writing, thinking, 
+        and documentation skills. Every article here is a step in my journey towards becoming a 
+        strong problem solver and builder.
+    </p>
+
+    <h1>Why This Blog?</h1>
+    <p>
+        Because writing helps clarity. And sharing helps consistency.  
+        Whether you're a beginner or someone exploring new topics, I hope this place becomes 
+        genuinely helpful.  
+        Every section (Web Development, AI, Programming, Gadgets) is crafted with simple 
+        explanations and real-world examples.
+    </p>
+
+    <h1>My Goals</h1>
+    <p>✔ Learn deeply  
+       ✔ Build consistently  
+       ✔ Document honestly  
+       ✔ Improve every day  
+       ✔ Share what matters  
+    </p>
+</div>
+
+<footer>
+    <p>&copy; 2025 Arman Tech Blog</p>
+</footer>
+
+</body>
+</html>

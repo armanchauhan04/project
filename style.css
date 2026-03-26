@@ -1,0 +1,897 @@
+/* ------------------ */
+/* RESET + GLOBAL     */
+/* ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    color: #222;
+    line-height: 1.7;
+    padding-bottom: 40px;
+}
+
+/* ------------------ */
+/* HEADER             */
+/* ------------------ */
+header {
+    background: linear-gradient(135deg, #4c6ef5, #3b5bdb);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+.posts {
+  display: grid;
+  /* Automatically fits as many columns as possible (min 350px each) */
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+.post {
+  padding: 0; /* Remove internal padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.post img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; /* This is crucial for wide-screen image consistency */
+  border-radius: 12px 12px 0 0;
+}
+
+.post-content-inner {
+  padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ------------------ */
+/* NAVBAR             */
+/* ------------------ */
+nav {
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 14px 22px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #444;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #4c6ef5;
+    background: #edf0ff;
+}
+
+/* ------------------ */
+/* MAIN CONTAINER     */
+/* ------------------ */
+.container {
+    max-width: 900px;
+    width: 90%;
+    margin: 30px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+/* ------------------ */
+/* HEADINGS           */
+/* ------------------ */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #444;
+}
+
+/* ------------------ */
+/* CARD / BOX STYLES  */
+/* ------------------ */
+.course,
+.lang,
+.gadget,
+.news,
+.box {
+    padding: 18px;
+    background: #f7f8fa;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #e3e3e3;
+    transition: 0.25s;
+}
+
+.course:hover,
+.lang:hover,
+.gadget:hover,
+.news:hover,
+.box:hover {
+    background: #eef0ff;
+    border-color: #d0d4ff;
+    transform: translateY(-3px);
+}
+
+/* ------------------ */
+/* FOOTER             */
+/* ------------------ */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: #3b5bdb;
+    color: white;
+    font-size: 0.95rem;
+}
+
+/* ------------------ */
+/* FORMS (Contact)    */
+/* ------------------ */
+form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+form button {
+    background: #4c6ef5;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #364fc7;
+}
+/* Add this to your CSS */
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #161f30;
+  --muted: #9aa4b2;
+  --text: #e6eef6;
+  --primary: #6b8cff;
+  --glass: rgba(15, 23, 42, 0.8);
+  --shadow: 0 8px 30px rgba(2, 6, 23, 0.7);
+}
+
+/* Ensure the body uses the background variable */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure cards use the card variable */
+.card, .post, main, aside {
+  background-color: var(--card);
+  color: var(--text);
+}
+
+/* ------------------ */
+/* RESPONSIVE DESIGN  */
+/* ------------------ */
+@media (max-width: 768px) {
+    header {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+    }
+}
+/* Floating Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+.theme-toggle:hover { transform: scale(1.1); }
+
+/* Reveal Animation */
+.reveal-effect {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+.reveal-effect.visible {
+    opacity: 1;
+    transform: translateY(0);
+}/* Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Glassmorphism for Nav */
+nav.primary {
+    backdrop-filter: blur(10px);
+    background: var(--glass);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Theme Toggle Button Style */
+#themeToggle {
+    cursor: pointer;
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+/* Advanced Image Styling */
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.5s ease;
+}
+
+.card {
+    padding: 0 !important; /* Allow image to touch edges */
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card:hover .card-img {
+    transform: scale(1.05);
+}
+/* ====== ADVANCED GLOBAL STYLES ====== */
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0f1724;
+    --primary: #4c6ef5;
+    --accent: #22c55e;
+    --glass: rgba(255,255,255,0.6);
+    --radius: 16px;
+    --shadow: 0 12px 40px rgba(16,24,40,0.06);
+    /* Change max-width to a percentage or larger value for full screen */
+    --max-width: 95%;
+}
+
+[data-theme="dark"] {
+    --bg: #0b1220;
+    --card: rgba(15, 23, 42, 0.8);
+    --text: #e6eef6;
+    --primary: #6b8cff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.5s ease;
+}
+
+/* Glassmorphism Effect */
+.card, main, header {
+    backdrop-filter: blur(12px);
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+}
+
+/* Image Hover Animation */
+.card-img-container {
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .card-img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+/* Reveal Animation Class */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ====== LAPTOP & DESKTOP OPTIMIZATIONS ====== */
+@media (min-width: 1024px) {
+    .container, .wrap {
+        display: grid;
+        grid-template-columns: 1fr 300px; /* Sidebar on the right */
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    /* Side-by-side post cards */
+    .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* Sticky Sidebar - stays in view while scrolling */
+    .sidebar {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    /* Desktop Navigation */
+    nav {
+        justify-content: flex-start;
+        padding: 0 10%;
+    }
+
+    /* Advanced Hover Effects for Mouse Users */
+    .card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+}
+
+/* Custom Scrollbar for Laptop Browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+    border: 3px solid var(--bg);
+}
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0f1724;
+    --primary: #4c6ef5;
+    --accent: #22c55e;
+    --glass: rgba(255,255,255,0.6);
+    --radius: 16px;
+    --shadow: 0 12px 40px rgba(16,24,40,0.06);
+    /* Change max-width to a percentage or larger value for full screen */
+    --max-width: 95%; 
+}
+
+/* Update the Wrap to handle ultra-wide screens */
+.wrap {
+    max-width: var(--max-width);
+    margin: 20px auto;
+    padding: 0 40px;
+    display: grid;
+    /* Increase gap for better spacing on large screens */
+    grid-template-columns: 1fr 350px; 
+    gap: 40px;
+}
+
+/* Ensure the background covers the full viewport height */
+body {
+    min-height: 100vh;
+    background: var(--bg);
+}
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #4c6ef5;
+  --accent: #22c55e;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+}
+
+/* THE MISSING PIECE: Dark Mode Definitions */
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --muted: #9aa4b2;
+  --text: #e6eef6;
+  --primary: #6b8cff;
+  --shadow: 0 8px 30px rgba(2, 6, 23, 0.7);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease;
+}
+:root {
+  /* ... existing variables ... */
+  --bg: #f4f7fb;
+  --text: #0f1724;
+  
+  /* NEW: Define base sizes */
+  --font-main: 1.15rem;   /* Increased from default (~18px) */
+  --font-h1: 3rem;       /* Large Hero Titles */
+  --font-h2: 2.2rem;     /* Section Titles */
+  --font-h3: 1.5rem;     /* Card Titles */
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  
+  /* Apply the increased text size here */
+  font-size: var(--font-main); 
+  line-height: 1.8; /* Increased spacing for easier reading */
+}
+
+/* Update Headings to match the new scale */
+h1 { font-size: var(--font-h1); line-height: 1.2; margin-bottom: 1rem; }
+h2 { font-size: var(--font-h2); margin-bottom: 0.8rem; }
+h3 { font-size: var(--font-h3); }
+
+/* Increase Nav Link size for laptop users */
+nav a {
+  font-size: 1.1rem;
+  padding: 12px 20px;
+}
+/* Styling for the filter tags */
+.filter-container {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(76, 110, 245, 0.3);
+}
+
+/* Smoothly hide posts that don't match */
+.post.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+}
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #0f1724;
+    --primary: #4c6ef5;
+    /* Remove fixed pixel widths */
+    --full-width: 100vw; 
+}
+
+[data-theme="dark"] {
+    --bg: #0b1220;
+    --card: #161f30;
+    --text: #e6eef6;
+}
+
+/* Force the body to take up every pixel */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll bars */
+    background-color: var(--bg);
+}
+
+/* The Main Wrapper: Now spans 100% of the screen */
+.wrap {
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Main content expands, Sidebar stays fixed */
+    width: 100%;
+    min-height: 100vh;
+    gap: 0; /* Remove gaps between main and sidebar for a flush look */
+}
+
+/* Main Content Area */
+main {
+    padding: 40px;
+    background-color: var(--bg);
+}
+
+/* Sidebar Area: Anchored to the right edge */
+.sidebar {
+    background-color: var(--card);
+    border-left: 1px solid rgba(0,0,0,0.05);
+    padding: 40px 20px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+[data-theme="dark"] .sidebar {
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+.posts {
+    display: grid;
+    /* This will automatically create 2, 3, or 4 columns based on screen size */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.post {
+    width: 100%; /* Ensure card fills its grid cell */
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.post img {
+    width: 100%;
+    height: 280px; /* Taller images for wide screens */
+    object-fit: cover;
+}
+header {
+    width: 100%;
+    margin: 0;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, var(--primary), #2b44b1);
+    color: white;
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100%;
+    margin: 0;
+    padding: 15px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #0f1724;
+    --primary: #4c6ef5;
+    /* Use a percentage for true full-page scaling */
+    --side-padding: 6%; 
+}
+
+[data-theme="dark"] {
+    --bg: #0b1220;
+    --card: #161f30;
+    --text: #e6eef6;
+}
+
+/* Reset all defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* HEADER & NAV: Unified width */
+header, nav {
+    width: 100%;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary), #2b44b1);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    background: var(--card);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* THE WRAPPER: Matches Nav exactly */
+.wrap {
+    display: grid;
+    grid-template-columns: 1fr 350px; /* Adjust sidebar width as needed */
+    width: 100%;
+    padding: 40px var(--side-padding); /* Side padding matches Nav */
+    gap: 40px;
+}
+
+/* For truly "Full Screen" remove max-widths from these classes */
+main, .container {
+    max-width: none !important; 
+    width: 100%;
+}
+.posts {
+    display: grid;
+    /* This fills all available space with cards minimum 400px wide */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.post {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.post img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+:root {
+    --side-padding: 6%; /* Controls the 'gutter' for the whole page */
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] {
+    --glass: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Perfect Alignment Reset */
+* {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0;
+}
+
+/* The Glass Navbar */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 75px;
+    padding: 0 var(--side-padding); /* Matches the main content exactly */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* The Effect */
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Main Wrapper Alignment */
+.wrap {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    /* This padding MUST match the Nav padding */
+    padding: 40px var(--side-padding); 
+    gap: 40px;
+}
+
+/* Ensure no element spills over */
+main, section, .posts {
+    max-width: 100%;
+}
+/* The Shimmer Animation */
+@keyframes shimmer {
+    0% { background-position: -468px 0; }
+    100% { background-position: 468px 0; }
+}
+
+.skeleton {
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation: shimmer 1.2s infinite linear;
+    border-radius: 8px;
+}
+
+[data-theme="dark"] .skeleton {
+    background: #1e293b;
+    background-image: linear-gradient(to right, #1e293b 0%, #334155 20%, #1e293b 40%, #1e293b 100%);
+}
+
+/* Skeleton shapes to match your layout */
+.skeleton-img { width: 100%; height: 250px; margin-bottom: 15px; }
+.skeleton-text { width: 80%; height: 20px; margin-bottom: 10px; }
+.skeleton-title { width: 40%; height: 30px; margin-bottom: 20px; }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary: #6366f1; /* Modern Indigo */
+    --accent: #10b981;  /* Success Green */
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #1e293b;
+    --nav-height: 72px;
+    --glass: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --glass: rgba(15, 23, 42, 0.8);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* 3D Hover Effect for Cards */
+.post {
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background: var(--card);
+}
+
+.post:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+/* Professional Gradient Text */
+.logo, .hero-title {
+    background: linear-gradient(to right, var(--primary), #a855f7);
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: none; /* Hidden by default */
+    justify-content: center; align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    width: 90%; max-width: 800px; max-height: 85vh;
+    padding: 40px; border-radius: 24px;
+    overflow-y: auto; position: relative;
+    background: var(--card); color: var(--text);
+    border: 1px solid var(--glass-border);
+    animation: modalScale 0.3s ease-out;
+}
+
+@keyframes modalScale {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute; top: 20px; right: 25px;
+    font-size: 30px; background: none; border: none;
+    color: var(--text); cursor: pointer;
+}
+.loader-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), #a855f7);
+    z-index: 10000;
+    transition: width 0.4s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}

@@ -1,0 +1,731 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Arman's Tech Blog — web development, AI, programming & gadget reviews." />
+  <title>Arman's Tech Blog — Tech Insights</title>
+<link rel="stylesheet" href="style.css">
+
+<script src="script.js" defer></script>
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <style>
+  /* ====== Variables & Reset ====== */
+  :root{
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0f1724;
+    --primary: #4c6ef5;
+    --accent: #22c55e;
+    --glass: rgba(255,255,255,0.6);
+    --radius: 12px;
+    --shadow: 0 8px 24px rgba(16,24,40,0.08);
+    --max-width: 1100px;
+  } 
+
+/* Update the Wrap to handle ultra-wide screens */
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0f1724;
+    --primary: #4c6ef5;
+    --accent: #22c55e;
+    --glass: rgba(255,255,255,0.6);
+    --radius: 16px;
+    --shadow: 0 12px 40px rgba(16,24,40,0.06);
+    /* Change max-width to a percentage or larger value for full screen */
+    --max-width: 95%; 
+}
+
+/* Update the Wrap to handle ultra-wide screens */
+.wrap {
+    max-width: var(--max-width);
+    margin: 20px auto;
+    padding: 0 40px;
+    display: grid;
+    /* Increase gap for better spacing on large screens */
+    grid-template-columns: 1fr 350px; 
+    gap: 40px;
+}
+/* Ensure the background covers the full viewport height */
+body {
+    min-height: 100vh;
+    background: var(--bg);
+}
+  [data-theme="dark"]{
+    --bg: #0b1220;
+    --card: #0f1724;
+    --muted: #9aa4b2;
+    --text: #e6eef6;
+    --primary: #6b8cff;
+    --glass: rgba(255,255,255,0.03);
+    --shadow: 0 8px 30px rgba(2,6,23,0.7);
+  }
+
+  /* Reset */
+  ::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    color:var(--text);
+    background:linear-gradient(180deg,var(--bg),#ffffff);
+    line-height:1.45;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block;height:auto}
+  button{font:inherit}
+
+  /* ====== Page layout ====== */
+  .wrap{
+    max-width:var(--max-width);
+    margin:28px auto;
+    padding:24px;
+    display:grid;
+    grid-template-columns: 1fr 320px;
+    gap:28px;
+    align-items:start;
+  }
+
+  header.site-header{
+    grid-column:1 / -1;
+    background:linear-gradient(135deg,var(--primary),#3753d6);
+    color:white;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .brand{
+    display:flex;
+    gap:14px;
+    align-items:center;
+  }
+  .logo {
+    width:56px;height:56px;border-radius:12px;
+    background:linear-gradient(135deg, #7da7ff, #4c6ef5);
+    display:flex;align-items:center;justify-content:center;
+    color:white;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(76,110,245,0.2);
+  }
+  .site-title{
+    line-height:1;
+  }
+  .site-title h1{font-size:1.25rem;margin:0}
+  .site-title p{margin:0;font-size:.85rem;color:rgba(255,255,255,0.9)}
+
+  /* nav */
+  nav.primary {
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+
+  .nav-list{
+    display:flex;
+    gap:6px;
+    align-items:center;
+  }
+
+  .nav-link{
+    background:transparent;
+    border-radius:10px;
+    padding:8px 12px;
+    color:rgba(255,255,255,0.95);
+    font-weight:600;
+    opacity:0.95;
+  }
+  .nav-link:hover{background:rgba(255,255,255,0.08)}
+  .nav-link.active{box-shadow:inset 0 -3px 0 rgba(255,255,255,0.18)}
+
+  /* Mobile menu toggle */
+  .menu-toggle{
+    background:transparent;border:0;color:white;padding:8px;border-radius:8px;display:none;
+  }
+
+  /* ====== Main & Sidebar ====== */
+  main{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow);
+  }
+
+  .hero{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    margin-bottom:18px;
+  }
+  .hero-left h2{margin:0 0 6px;font-size:1.4rem}
+  .hero-left p{margin:0;color:var(--muted)}
+  .hero-cta{margin-top:12px;display:flex;gap:10px}
+
+  .btn{
+    background:var(--primary);
+    border:none;color:white;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;
+    box-shadow:0 10px 20px rgba(76,110,245,0.12);
+  }
+  .btn.secondary{background:transparent;color:var(--primary);border:1px solid rgba(76,110,245,0.12)}
+
+  /* posts grid */
+  .posts{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  .post{
+    background:linear-gradient(180deg,var(--glass),transparent);
+    padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);transition:transform .28s,box-shadow .28s;
+    overflow:hidden;
+  }
+  .post:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .post h3{margin:0 0 8px;font-size:1.05rem}
+  .meta{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+  .post p{margin:0;color:var(--muted);font-size:.95rem}
+
+  /* sidebar */
+  aside.sidebar{
+    position:relative;
+    align-self:start;
+    min-width:0;
+  }
+  .card{
+    background:var(--card);
+    border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow);
+  }
+
+  .search input{
+    width:100%;padding:10px;border-radius:10px;border:1px solid #e6e9ef;font-size:.95rem;
+  }
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .tag{padding:8px 10px;border-radius:999px;background:rgba(76,110,245,0.08);font-weight:600;color:var(--primary);font-size:.85rem}
+
+  .subscribe input{width:100%;padding:10px;border-radius:10px;border:1px solid #e6e9ef;font-size:.95rem;margin-bottom:8px}
+  .subscribe button{width:100%}
+
+  /* footer */
+  footer.site-footer{
+    grid-column:1 / -1;
+    display:flex;justify-content:space-between;align-items:center;padding:18px;border-radius:12px;background:transparent;
+    color:var(--muted);font-size:.95rem;margin-top:12px;
+  }
+
+  /* Reveal animations */
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.is-visible{opacity:1;transform:none}
+
+  /* ====== Responsive ====== */
+  @media (max-width:1000px){
+    .wrap{grid-template-columns:1fr 300px;gap:18px;padding:18px}
+    .posts{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    .wrap{grid-template-columns:1fr;padding:14px;gap:14px}
+    header.site-header{flex-direction:column;align-items:stretch;gap:12px}
+    .menu-toggle{display:inline-flex}
+    .nav-list{display:none;flex-direction:column;background:rgba(255,255,255,0.04);padding:8px;border-radius:10px}
+    .nav-list.open{display:flex}
+    nav.primary{justify-content:space-between}
+    .hero{flex-direction:column}
+    .posts{grid-template-columns:1fr}
+    .site-title h1{font-size:1.1rem}
+  }
+
+  /* tiny screens */
+  @media (max-width:420px){
+    .logo{width:48px;height:48px;font-size:16px}
+    .brand{gap:10px}
+    .site-title p{display:none}
+  }
+  /* 1. Gradient Text Animation */
+.gradient-text {
+  background: linear-gradient(90deg, #4c6ef5, #22c55e, #4c6ef5);
+  background-size: 200% auto;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* 2. Advanced Card Hover for Mouse Users */
+.post {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.post:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* 3. Ripple Effect for Buttons */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+  </style>
+</head>
+<body>
+  <div id="topLoader" class="loader-bar"></div>
+  <div id="scrollProgress" style="position:fixed; top:0; left:0; width:0%; height:4px; background:var(--accent); z-index:2000; transition: width 0.1s ease;"></div>
+
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <header class="site-header" role="banner">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">T</div>
+        <div class="site-title">
+          <h1>Tech Blog Insights</h1><br>
+          <p>Learn. Build. Document. Repeat.</p>
+        </div>
+      </div>
+
+      <nav class="primary" aria-label="Primary navigation">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" title="Open menu">
+          ☰
+        </button>
+
+        <div class="nav-list" id="primaryNav">
+          <a class="nav-link active" href="#home">Home</a>
+          <a class="nav-link" href="about.html">Abount</a>
+          <a class="nav-link" href="webdev.html">Web Dev</a>
+          <a class="nav-link" href="ai.html">AI & ML</a>
+          <a class="nav-link" href="technew.html">Tech News</a>
+          <a class="nav-link" href="programming.html">Programming</a>
+          <a class="nav-link" href="gadgets.html">Gadgets</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+          <button id="themeToggle" class="nav-link" title="Toggle theme">🌙</button>
+          
+          <script>
+(function() {
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById('themeToggle');
+    
+    // 1. Instant Load: Check localStorage immediately
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', savedTheme);
+
+    // 2. Toggle Functionality
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = htmlEl.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            // Apply the theme
+            htmlEl.setAttribute('data-theme', newTheme);
+            
+            // Save it so it stays on refresh/new pages
+            localStorage.setItem('theme', newTheme);
+            
+            console.log("Theme switched to: " + newTheme); // Debugger
+        });
+    } else {
+        console.error("Theme toggle button not found! Check your ID.");
+    }
+})();
+</script>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main id="home" class="reveal">
+
+      <section class="hero">
+        <div class="hero-left">
+          <h2>Welcome — I'm Arman 👋</h2>
+          <p>Student, learner & builder writing about web development, AI, programming and gadgets. Read practical guides, tutorials and honest reviews.</p>
+
+          <div class="hero-cta">
+            <a class="btn" href="webdev.html">Start Learning</a>
+            <a class="btn secondary" href="#subscribe">Subscribe</a>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <!-- Simple illustration placeholder -->
+          <svg width="160" height="120" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration">
+            <rect x="0" y="0" width="160" height="120" rx="14" fill="url(#g)"></rect>
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0" stop-color="#7da7ff"/>
+                <stop offset="1" stop-color="#4c6ef5"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </section>
+      <div class="desktop-content-wrapper" style="display: grid; grid-template-columns: 1fr 320px; gap: 28px; width: 100%;">
+  
+  
+    <script>
+    // 1. Immediate Theme Application (Prevents White Flash)
+    const initTheme = () => {
+        const saved = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', saved);
+    };
+    initTheme();
+
+    // 2. Toggle Event Listener
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('themeToggle');
+        
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const doc = document.documentElement;
+                const isDark = doc.getAttribute('data-theme') === 'dark';
+                const newTheme = isDark ? 'light' : 'dark';
+                
+                doc.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                console.log("Active Theme:", newTheme);
+            });
+        }
+    });
+</script>
+<script>
+    // 1. Instant Application (Prevents the white flash)
+    const applyTheme = () => {
+        const saved = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', saved);
+    };
+    applyTheme();
+
+    // 2. Button Logic
+    window.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('themeToggle');
+        
+        if (btn) {
+            btn.onclick = () => {
+                const doc = document.documentElement;
+                const current = doc.getAttribute('data-theme');
+                const target = current === 'dark' ? 'light' : 'dark';
+                
+                doc.setAttribute('data-theme', target);
+                localStorage.setItem('theme', target);
+                console.log("Theme changed to:", target);
+            };
+        } else {
+            console.error("Error: Toggle button with ID 'themeToggle' not found!");
+        }
+    });
+</script>
+
+
+
+
+      <!-- POSTS / CARDS -->
+      <section>
+        <h2 style="margin:6px 0 14px">Latest posts</h2>
+
+
+        <!-- Search & Filter -->
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+          <div style="flex:1" class="search card">
+            <label for="searchInput" style="display:block;font-weight:700;margin-bottom:8px">Search posts</label>
+            <input id="searchInput" placeholder="Search title or content..." aria-label="Search posts">
+         
+          </div>
+
+          <div style="width:220px" class="card">
+            <label style="display:block;font-weight:700;margin-bottom:8px">Filter by tag</label>
+            <div class="tags" id="tagList">
+              <button class="tag" data-tag="">All</button>
+              <button class="tag" data-tag="webdev">Web Dev</button>
+              <button class="tag" data-tag="ai">AI</button>
+              <button class="tag" data-tag="gadgets">Gadgets</button>
+              <button class="tag" data-tag="programming">Programming</button>
+              <button class="tag" data-tag="technews">Tech News</button>
+            </div>
+          </div>
+        </div>
+        <section class="hero floating-parent">
+    <div class="hero-content reveal">
+        <h1 class="gradient-text">The Future of Tech, Today.</h1>
+        <p>Deep dives into Web Dev, AI, and the gadgets that define our generation.</p>
+        <div class="hero-buttons">
+            <a href="#posts" class="btn-primary ripple">Explore Articles</a>
+            <a href="contact.html" class="btn-secondary">Get in Touch</a>
+        </div>
+    </div>
+    <div class="floating-shape"></div>
+</section>
+
+<div id="posts" class="posts-grid">
+    <article class="post reveal stagger-item">
+        <div class="post-img-container">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600" alt="Code">
+            <div class="post-category">Web Dev</div>
+        </div>
+        <div class="post-info">
+            <h3>Mastering Modern Frameworks</h3>
+            <p>Why React and Next.js are dominating the industry in 2025.</p>
+            <a href="webdev.html" class="read-more-btn">Read More <span>→</span></a>
+        </div>
+    </article>
+
+    <article class="post reveal stagger-item">
+        <div class="post-img-container">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600" alt="AI">
+            <div class="post-category">AI</div>
+        </div>
+        <div class="post-info">
+            <h3>The Ethical Dilemma of AI</h3>
+            <p>Balancing innovation with privacy and human-centric design.</p>
+            <a href="ai.html" class="read-more-btn">Read More <span>→</span></a>
+        </div>
+    </article>
+</div>
+
+        <div class="posts" id="postsList">
+
+          <!-- Example posts - replace with dynamic content later -->
+          <article class="post reveal" data-tags="webdev programming">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400" alt="Code">
+            <h3>Getting Started with Web Development</h3>
+            <div class="meta">Nov 1, 2025 · Aryan</div>
+            <p>Learn the basics of HTML, CSS, and JavaScript to start your web development journey with real examples.</p>
+          </article>
+
+          <article class="post reveal" data-tags="gadgets">
+    <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800&q=80" alt="Gadgets on a developer desk" class="post-img">
+
+    <div class="post-content" style="padding: 25px;">
+        <h3>Top 5 Gadgets Every Developer Should Have</h3>
+        <div class="meta">Oct 28, 2025 · Guest Author</div>
+        <p>From mechanical keyboards to dual monitors — tools that make your coding life easier.</p>
+        
+        <a href="#" class="read-more-btn">Read Article</a>
+    </div>
+</article>
+
+          <article class="post reveal" data-tags="ai programming">
+            <h3>Intro to Machine Learning: A Beginner Guide</h3>
+            <div class="meta">Sep 15, 2025 · Arman</div>
+            <p>Clear and simple explanations of supervised & unsupervised learning with small practical examples.</p>
+          </article>
+
+          <article class="post reveal" data-tags="technews">
+            <h3>Latest Trends in Tech for 2025</h3>
+            <div class="meta">Sep 5, 2025 · Tech News Team</div>
+            <p>A roundup of the most exciting advancements in technology this year, from AI breakthroughs to new gadgets.</p>
+            </article>
+
+        </div>
+      </section>
+      
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      
+
+      <div class="card">
+        <h3>About</h3>
+        <p style="color:var(--muted)">I’m Arman — student, developer & writer sharing practical tutorials, honest gadget reviews and AI experiments.</p>
+      </div>
+
+      <div class="card subscribe" id="subscribe">
+        <h3>Subscribe</h3>
+        <p style="color:var(--muted);margin-bottom:8px">Get short updates when a new post is published.</p>
+        <input id="emailInput" type="email" placeholder="Your email" aria-label="Email">
+        <button class="btn" id="subscribeBtn">Subscribe</button>
+      </div>
+
+      <div class="card">
+        <h3>Popular Tags</h3>
+        <div class="tags" aria-hidden="false">
+          <span class="tag">#HTML</span>
+          <span class="tag">#CSS</span>
+          <span class="tag">#JavaScript</span>
+          <span class="tag">#AI</span>
+          <span class="tag">#Python</span>
+        </div>
+      </div>
+
+    </aside>
+<div class="status-indicator">
+    <span class="dot"></span>
+    <span class="status-text">System Live</span>
+</div>
+
+<style>
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+</style>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div>© <span id="year"></span> Arman's Tech Blog • Built with ❤</div>
+      <div style="color:var(--muted)">Made for learning & sharing</div>
+    </footer>
+
+  </div>
+
+  <script>
+  /* ====== Utilities ====== */
+  const $ = (sel, ctx=document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+
+  /* ====== Mobile menu toggle ====== */
+  const menuToggle = $('#menuToggle');
+  const navList = $('#primaryNav');
+
+  menuToggle?.addEventListener('click', () => {
+    const open = navList.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+  });
+
+  /* ====== Theme toggle (persist in localStorage) ====== */
+  const themeToggle = $('#themeToggle');
+  const root = document.documentElement;
+  const storedTheme = localStorage.getItem('site-theme');
+  if(storedTheme) root.setAttribute('data-theme', storedTheme);
+  themeToggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', current === 'dark' ? 'dark' : 'light');
+    localStorage.setItem('site-theme', current === 'dark' ? 'dark' : 'light');
+    themeToggle.textContent = current === 'dark' ? '☀' : '🌙';
+  });
+  // show correct icon
+  themeToggle.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '🌙';
+
+  /* ====== Set current year ====== */
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ====== Smooth scroll for nav links ====== */
+  $$('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if(href && href.startsWith('#')){
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+        // close mobile nav if open
+        if(navList.classList.contains('open')) navList.classList.remove('open');
+        // set active
+        $$('.nav-link').forEach(n => n.classList.remove('active'));
+        link.classList.add('active');
+      });
+    }
+  });
+
+  /* ====== Simple search + filter for posts ====== */
+  const posts = $$('#postsList .post');
+  const searchInput = $('#searchInput');
+  const tagButtons = $$('#tagList .tag');
+
+  function filterPosts(){
+    const q = (searchInput.value || '').trim().toLowerCase();
+    const activeTag = tagButtons.find(b => b.classList.contains('active'))?.dataset.tag ?? '';
+    posts.forEach(post => {
+      const title = post.querySelector('h3')?.textContent?.toLowerCase() || '';
+      const body = post.querySelector('p')?.textContent?.toLowerCase() || '';
+      const tags = (post.dataset.tags || '').toLowerCase();
+      const matchesQuery = !q || title.includes(q) || body.includes(q);
+      const matchesTag = !activeTag || tags.split(' ').includes(activeTag);
+      post.style.display = (matchesQuery && matchesTag) ? '' : 'none';
+    });
+  }
+
+  searchInput?.addEventListener('input', filterPosts);
+
+  tagButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tagButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterPosts();
+    });
+  });
+  // set default tag active 'All' (first)
+  tagButtons[0]?.classList.add('active');
+
+  /* ====== Subscribe button (simple visual) ====== */
+  $('#subscribeBtn').addEventListener('click', () => {
+    const email = $('#emailInput').value.trim();
+    if(!email || !/^\S+@\S+\.\S+$/.test(email)){
+      alert('Please enter a valid email address');
+      return;
+    }
+    // Simulate subscribe (replace with real request later)
+    $('#emailInput').value = '';
+    alert('Thanks! You are subscribed (demo).');
+  });
+
+  /* ====== Reveal on scroll for elements with class .reveal ====== */
+  const revealables = $$('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(ent => {
+      if(ent.isIntersecting) {
+        ent.target.classList.add('is-visible');
+        // keep visible — unobserve to improve perf
+        io.unobserve(ent.target);
+      }
+    });
+  }, {threshold:0.12});
+  revealables.forEach(el => io.observe(el));
+
+  /* ====== Keyboard accessibility for menu toggle (Enter/Space) ====== */
+  menuToggle.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menuToggle.click();
+    }
+  });
+
+  /* ====== Highlight nav on scroll (basic) ====== */
+  const sections = ['home','webdev','ai','news','programming','gadgets'].map(id=>document.getElementById(id)).filter(Boolean);
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 120;
+    for(const sec of sections){
+      if(sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos){
+        const id = '#' + sec.id;
+        $$('.nav-link').forEach(n => n.classList.toggle('active', n.getAttribute('href') === id));
+      }
+    }
+  });
+
+  </script>
+  <div id="articleModal" class="modal-overlay">
+    <div class="modal-content glass">
+        <button id="closeModal" class="close-btn">&times;</button>
+        <div id="modalBody">
+            </div>
+    </div>
+</div>
+
+</body>
+</html>

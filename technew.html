@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech News – Arman's Tech Blog</title>
+
+
+<script src="script.js" defer></script>
+<style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #4c6ef5;
+  --accent: #22c55e;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+  --max-width: 900px;
+}
+
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--primary), #3753d6);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px;
+}
+header h1 {
+  font-size: 2rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px;
+}
+nav a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+  transition: background .3s, color .3s;
+}
+nav a:hover, nav a.active {
+  background: rgba(76,110,245,0.1);
+  color: var(--primary);
+}
+
+/* Container */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 40px 20px;
+}
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(16,24,40,0.12);
+}
+.card h2 {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.card p {
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--muted);
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width:720px){
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 30px 14px;
+  }
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Tech News</h1>
+</header>
+
+<nav>
+    <a href="MAIN.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="webdev.html">Web Dev</a>
+    <a href="ai.html">AI & ML</a>
+    <a class="active" href="technew.html">Tech News</a>
+    <a href="programming.html">Programming</a>
+    <a href="gadgets.html">Gadgets</a>
+</nav>
+
+<div class="container">
+    <h1>Latest in Technology</h1>
+
+    <div class="card">
+        <h2>New AI Tools Changing the Industry</h2>
+        <p>
+            Artificial Intelligence is rapidly evolving. New AI models, faster chips, and smarter tools
+            are transforming coding, automation, and the tech world as a whole.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Tech Companies Launch Faster Processors</h2>
+        <p>
+            Leading companies like Intel, AMD, and Apple have released new processors with major
+            improvements in speed, power efficiency, and AI capabilities.
+        </p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Cybersecurity">
+        <h2>Cybersecurity Updates</h2>
+        <p>
+            With increased cyber attacks worldwide, companies are focusing heavily on data security,
+            encryption, and secure authentication systems.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Latest Smartphone Innovations</h2>
+        <p>
+            New smartphones now come with foldable screens, AI-powered cameras, and extremely powerful
+            processors, making them mini supercomputers.
+        </p>
+    </div>
+
+</div>
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" class="card-img" alt="AI News">
+    <div class="card-body">
+        <h2>New AI Tools Changing the Industry</h2>
+        <p>Artificial Intelligence is rapidly evolving...</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Arman’s Tech Blog</p>
+</footer>
+
+</body>
+</html>

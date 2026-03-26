@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Machine Learning – Arman's Tech Blog</title>
+
+
+<script src="script.js" defer></script>
+<style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #4c6ef5;
+  --accent: #22c55e;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+  --max-width: 900px;
+}
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --muted: #9aa4b2;
+  --text: #e6eef6;
+  --primary: #6b8cff;
+  --shadow: 0 8px 30px rgba(2,6,23,0.7);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg,var(--primary),#3753d6);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px;
+}
+header h1 {
+  font-size: 2rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px;
+}
+nav a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background .3s, color .3s;
+}
+nav a:hover, nav a.active {
+  background: rgba(76,110,245,0.1);
+  color: var(--primary);
+}
+
+/* Main container */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Section heading */
+.container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(16,24,40,0.12);
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.card p {
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--muted);
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width:720px){
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 30px 14px;
+  }
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>AI & Machine Learning</h1>
+</header>
+
+<nav>
+    <a href="MAIN.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="webdev.html">Web Dev</a>
+    <a class="active" href="ai.html">AI & ML</a>
+    <a href="technew.html">Tech News</a>
+    <a href="programming.html">Programming</a>
+    <a href="gadgets.html">Gadgets</a>
+</nav>
+
+<div class="container">
+
+    <h1>Artificial Intelligence & Machine Learning</h1>
+
+    <div class="card">
+        <h2>What is AI?</h2>
+        <p>
+            Artificial Intelligence (AI) refers to machines that can perform tasks that normally require
+            human intelligence. These tasks include learning, problem solving, language understanding,
+            and pattern recognition.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>What is Machine Learning?</h2>
+        <p>
+            Machine Learning (ML) is a sub-field of AI where machines learn from data and improve over time
+            without being explicitly programmed.  
+            Example: recommendation systems, spam detection, image classification.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Types of Machine Learning</h2>
+        <p>
+            ✔ <strong>Supervised Learning</strong> – model learns from labeled data<br>
+            ✔ <strong>Unsupervised Learning</strong> – finds hidden patterns in data<br>
+            ✔ <strong>Reinforcement Learning</strong> – learns by rewards and penalties
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Real-World Applications</h2>
+        <p>
+            - Chatbots and AI assistants<br>
+            - Self-driving cars<br>
+            - Face recognition<br>
+            - Medical diagnosis<br>
+            - Language translation<br>
+            - Stock prediction
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Arman's Tech Blog</p>
+</footer>
+
+</body>
+</html>

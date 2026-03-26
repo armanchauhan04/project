@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gadgets – Arman's Tech Blog</title>
+
+<style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #4c6ef5;
+  --accent: #22c55e;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+  --max-width: 900px;
+}
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --muted: #9aa4b2;
+  --text: #e6eef6;
+  --primary: #6b8cff;
+  --shadow: 0 8px 30px rgba(2,6,23,0.7);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg,var(--primary),#3753d6);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px;
+}
+header h1 {
+  font-size: 2rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px;
+}
+nav a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+  transition: background .3s, color .3s;
+}
+nav a:hover, nav a.active {
+  background: rgba(76,110,245,0.1);
+  color: var(--primary);
+}
+
+/* Main container */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 40px 20px;
+}
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(16,24,40,0.12);
+}
+.card h2 {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.card p {
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--muted);
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width:720px){
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 30px 14px;
+  }
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Gadgets</h1>
+</header>
+
+<nav>
+    <a href="MAIN.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="webdev.html">Web Dev</a>
+    <a href="ai.html">AI & ML</a>
+    <a href="technew.html">Tech News</a>
+    <a href="programming.html">Programming</a>
+    <a class="active" href="gadgets.html">Gadgets</a>
+</nav>
+
+<div class="container">
+    <h1>Latest Gadgets & Tech Devices</h1>
+
+    <div class="card">
+        <h2>Smartphones</h2>
+        <p>
+            New smartphones are pushing boundaries with stronger processors, AI cameras,
+            longer battery life, and foldable displays that redefine portability.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Smartwatches</h2>
+        <p>
+            Smartwatches now offer health tracking, ECG monitoring, GPS navigation,
+            and seamless phone connectivity — all on your wrist.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Laptops</h2>
+        <p>
+            Modern laptops are lighter, faster, and more powerful.  
+            With AI-boosted chips, better displays, and long battery life, they’re essential for creators and developers.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Headphones & Earbuds</h2>
+        <p>
+            Noise-cancellation, high-resolution audio, and spatial sound make modern audio devices
+            perfect for music lovers, gamers, and professionals.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Gaming Accessories</h2>
+        <p>
+            From mechanical keyboards to RGB mice and 144Hz monitors, gaming accessories
+            enhance both performance and experience.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Arman’s Tech Blog</p>
+</footer>
+
+</body>
+</html>
